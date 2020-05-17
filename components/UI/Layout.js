@@ -1,14 +1,24 @@
-import Theme from "./Theme";
+import theme from './_theme'
 
-export function Layout() {
+export default function Layout({ children, colorMode = 'dark' }) {
   return (
     <>
-      <div>This is the main contaier</div>
+      <div>{children}</div>
+
+      <style jsx global>{`
+        body {
+          background: ${theme[colorMode].background};
+          color: ${theme[colorMode].color};
+        }
+        a {
+          color: ${theme.light.link};
+        }
+      `}</style>
       <style jsx>{`
         div {
           min-height: 100vh;
         }
       `}</style>
     </>
-  );
+  )
 }

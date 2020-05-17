@@ -5,16 +5,7 @@ export default function Home() {
         green
         <span>blue</span>
       </p>
-
-      <style jsx>{`
-        p {
-          color: green;
-        }
-
-        p > span {
-          color: blue;
-        }
-      `}</style>
+      <a href="#">This is a link</a>
     </>
-  );
+  )
 }
