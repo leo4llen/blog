@@ -10,7 +10,11 @@
   "dependencies": {
     "next": "9.3.5",
     "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "sass": "^1.26.5"
+    "react-dom": "16.13.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "eslint-config-prettier-standard": "^3.0.1",
+    "eslint-plugin-react": "^7.20.0"
   }
 }
