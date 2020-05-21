@@ -1,21 +1,26 @@
-import { Container } from 'components/ui'
+import { Container, Row } from 'components/ui'
+import Banner from 'components/Banner'
+import Head from 'components/Head'
 import { useTheme } from 'providers/Theme'
 
-export default function Home() {
+export default function Index() {
   const { theme, toggleTheme } = useTheme()
 
   return (
     <>
+      <Head />
       <Container>
-        {theme.color}
-        <p> this is a p inside the container</p>
-        <button onClick={() => toggleTheme()}></button>
+        <Banner />
       </Container>
-      <p>
-        green
-        <span>blue</span>
-      </p>
-      <a href="#">This is a link</a>
     </>
   )
 }
+
+// export async function getStaticProps() {
+//   let { items } = await client.getEntries()
+//   return {
+//     props: {
+//       items,
+//     },
+//   }
+// }

@@ -1,6 +1,6 @@
 import { useTheme } from 'providers/Theme'
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   const { theme } = useTheme()
 
   return (
@@ -8,8 +8,10 @@ export default function Layout({ children }) {
       {children}
       <style jsx global>{`
         body {
+          margin: 0;
           background: ${theme.background};
-          color: ${theme.color};
+          font-family: 'Work Sans', sans-serif;
+          color: ${theme.text};
           -moz-transition: background 0.2s ease-in, color 0.2s ease-in;
           -webkit-transition: background 0.2s ease-in, color 0.2s ease-in;
           -o-transition: background 0.2s ease-in, color 0.2s ease-in;
@@ -33,3 +35,5 @@ export default function Layout({ children }) {
     </>
   )
 }
+
+export default Layout

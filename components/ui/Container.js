@@ -1,4 +1,4 @@
-export default function ({ children }) {
+export const Container = ({ children }) => {
   return (
     <>
       <div>{children}</div>
@@ -6,6 +6,8 @@ export default function ({ children }) {
       <style jsx>{`
         div {
           display: flex;
+          flex-direction: column;
+          align-items: center;
         }
       `}</style>
     </>

@@ -4,15 +4,15 @@ import { createContext, useContext, useState, useEffect } from 'react'
 const THEME = {
   light: {
     background: '#f7f7f7',
-    link: '#fdcb9e',
-    color: '#3f3f44',
-    heading: '#cceabb',
+    primary: '#84cb4d',
+    text: 'black',
+    subText: '#cceabb',
   },
   dark: {
     background: '#3f3f44',
-    link: '#fdcb9e',
-    color: '#f7f7f7',
-    heading: '#cceabb',
+    primary: '#affc41',
+    text: 'white',
+    subText: '#cceabb',
   },
 }
 
