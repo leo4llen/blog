@@ -3,21 +3,27 @@ import { createContext, useContext, useState, useEffect } from 'react'
 
 const THEME = {
   light: {
-    background: '#f7f7f7',
-    primary: '#84cb4d',
-    text: 'black',
+    background: '#e8e4e1',
+    primary: '#47d147',
+    text: '#333333',
     subText: '#cceabb',
+    headingFont: "'Press Start 2P', cursive",
+    headerColor: '#333333',
+    font: "'Source Serif Pro', serif",
   },
   dark: {
-    background: '#3f3f44',
-    primary: '#affc41',
-    text: 'white',
+    background: '#333333',
+    primary: '#47d147',
+    text: '#e8e4e1',
     subText: '#cceabb',
+    headingFont: "'Press Start 2P', cursive",
+    headerColor: '#333333',
+    font: "'Source Serif Pro', serif",
   },
 }
 
 const ThemeContext = (() => {
-  const DEFAULT_COLOR_MODE = 'light'
+  const DEFAULT_COLOR_MODE = 'dark'
   const DEFAULT_THEME = {
     colorMode: DEFAULT_COLOR_MODE,
     theme: THEME[DEFAULT_COLOR_MODE],
@@ -28,8 +34,8 @@ const ThemeContext = (() => {
 
 export const ThemeProvider = ({ children }) => {
   const INITIAL_THEME = {
-    colorMode: 'light',
-    theme: THEME['light'],
+    colorMode: 'dark',
+    theme: THEME['dark'],
     toggleTheme,
   }
 

@@ -6,20 +6,29 @@ const Layout = ({ children }) => {
   return (
     <>
       {children}
+
+      {/* Global styles */}
+
       <style jsx global>{`
         body {
           margin: 0;
-          background: ${theme.background};
-          font-family: 'Work Sans', sans-serif;
-          color: ${theme.text};
           -moz-transition: background 0.2s ease-in, color 0.2s ease-in;
           -webkit-transition: background 0.2s ease-in, color 0.2s ease-in;
           -o-transition: background 0.2s ease-in, color 0.2s ease-in;
           transition: background 0.2s ease-in, color 0.2s ease-in;
+          min-height: 90vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-weight: 400;
         }
 
         a {
-          color: ${theme.link};
           text-decoration: none;
         }
 
@@ -27,9 +36,15 @@ const Layout = ({ children }) => {
           text-decoration: underline;
         }
       `}</style>
-      <style jsx>{`
-        div {
-          min-height: 100vh;
+
+      <style jsx global>{`
+        body {
+          font-family: ${theme.font};
+          color: ${theme.text};
+          background: ${theme.background};
+        }
+        a {
+          color: ${theme.link};
         }
       `}</style>
     </>
