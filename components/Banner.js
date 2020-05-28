@@ -24,6 +24,7 @@ const Banner = () => {
         header {
           display: flex;
           flex-direction: column;
+          padding: 2vh 1.5rem;
           align-items: center;
           text-align: justify;
         }
