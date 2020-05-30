@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
-import { asyncMemoize } from 'utils'
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { memoizePosts } from 'utils'
 const credentials =
   process.env.NODE_ENV === 'dev'
     ? {
@@ -13,14 +14,16 @@ const credentials =
       }
 
 const client = createClient(credentials)
+// memoizing this since this will be fetched multiple times while running the build
 
-export const getPosts = asyncMemoize(() => {
+export const getPosts = memoizePosts(() => {
   return client
     .getEntries()
     .then((entries) =>
       entries.items.map((item) => ({
         title: item.fields.title,
         slug: item.fields.slug,
+        post: documentToHtmlString(item.fields.post),
         id: item.sys.id,
         date: item.sys.createdAt,
       }))

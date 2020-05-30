@@ -9,7 +9,7 @@ export const Container = ({ children, align = 'stretch' }) => {
 
           flex-direction: column;
           width: 100%;
-          max-width: 960px;
+          max-width: 768px;
         }
       `}</style>
 

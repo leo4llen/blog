@@ -1,22 +1,26 @@
 import { Container } from 'components/ui'
 import { useTheme } from 'providers/Theme'
+import { BsSun } from 'react-icons/bs'
+import { RiMoonClearLine } from 'react-icons/ri'
 
 const Banner = () => {
-  const { theme, toggleTheme } = useTheme()
+  const { colorMode, theme, toggleTheme } = useTheme()
 
   return (
     <header>
-      <Container align="flex-end"></Container>
+      <Container align="flex-end">
+        <a href="#" onClick={() => toggleTheme()} title="Toggle color mode">
+          {' '}
+          {colorMode === 'dark' ? <RiMoonClearLine /> : <BsSun />}
+        </a>
+      </Container>
       <Container align="center">
         <h3>Leo Allen's Blog</h3>
-        <a href="#" onClick={() => toggleTheme()}>
-          {' '}
-          Change theme
-        </a>
+
         <p className="tagline">
-          Yay! You've found my programming blog! I'm Leo and I'm programmer from
-          Chennai, India. I primarily write code for the web and I love
-          Javascript.
+          Yay! You've found my programming blog! I'm Leo and I'm a software
+          engineer from Chennai, India. I primarily build apps for the web and I
+          love Javascript.
         </p>
       </Container>
 
@@ -24,9 +28,21 @@ const Banner = () => {
         header {
           display: flex;
           flex-direction: column;
-          padding: 2vh 1.5rem;
+          padding: 6vh 3rem;
           align-items: center;
           text-align: justify;
+        }
+
+        a {
+          font-size: 1.5rem;
+        }
+
+        a:active {
+          color: ${theme.headerColor};
+        }
+
+        .tagline {
+          line-height: 1.5;
         }
       `}</style>
 

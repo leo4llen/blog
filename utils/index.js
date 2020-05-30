@@ -1,6 +1,7 @@
-export const asyncMemoize = async (fn) => {
-  let cache = null
-  if (cache) return cache
-  cache = await fn()
-  return cache
+export const memoizePosts = (fn) => {
+  let posts = null
+  return async (slug) => {
+    if (!posts) posts = await fn()
+    return slug ? posts.find((post) => post.slug) : posts
+  }
 }
