@@ -1,5 +1,5 @@
 import Banner from 'components/Banner'
-import Posts from 'components/Posts'
+import PostListing from 'components/PostListing'
 import Head from 'components/Head'
 import { getPosts } from 'services/contentful'
 
@@ -10,7 +10,7 @@ const BlogIndex = ({ posts }) => {
 
       <Banner />
 
-      <Posts posts={posts} />
+      <PostListing posts={posts} />
     </>
   )
 }

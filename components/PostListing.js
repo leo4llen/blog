@@ -9,7 +9,7 @@ const Posts = ({ posts }) => {
         {posts.map((post) => (
           <div className="post-card" key={post.id}>
             <h2>
-              <A>{post.title}</A>
+              <A href={`/blog/${post.slug}`}>{post.title}</A>
             </h2>
             <p>{new Date(post.date).toDateString()}</p>
             <hr />

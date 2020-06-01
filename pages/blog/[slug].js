@@ -1,9 +1,14 @@
+import Head from 'components/Head'
+import Banner from 'components/Banner'
+import Post from 'components/Post'
 import { getPosts } from 'services/contentful'
 
 const BlogPost = ({ post }) => {
   return (
     <>
-      <div dangerouslySetInnerHTML={{ __html: post.post }} />
+      <Head />
+      <Banner />
+      <Post post={post} />
     </>
   )
 }
@@ -22,10 +27,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ({ params }) => {
-  console.log(params.slug)
   const post = await getPosts(params.slug)
 
-  console.log(post)
   return { props: { post } }
 }
 

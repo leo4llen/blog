@@ -1,18 +1,14 @@
 import { Container } from 'components/ui'
+import SocialLinks from 'components/SocialLinks'
 import { useTheme } from 'providers/Theme'
-import { BsSun } from 'react-icons/bs'
-import { RiMoonClearLine } from 'react-icons/ri'
 
 const Banner = () => {
-  const { colorMode, theme, toggleTheme } = useTheme()
+  const { theme } = useTheme()
 
   return (
     <header>
       <Container align="flex-end">
-        <a href="#" onClick={() => toggleTheme()} title="Toggle color mode">
-          {' '}
-          {colorMode === 'dark' ? <RiMoonClearLine /> : <BsSun />}
-        </a>
+        <SocialLinks />
       </Container>
       <Container align="center">
         <h3>Leo Allen's Blog</h3>
@@ -31,14 +27,9 @@ const Banner = () => {
           padding: 6vh 3rem;
           align-items: center;
           text-align: justify;
-        }
-
-        a {
-          font-size: 1.5rem;
-        }
-
-        a:active {
-          color: ${theme.headerColor};
+          -webkit-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
+          -moz-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
+          box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
         }
 
         .tagline {

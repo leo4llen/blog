@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { BLOCKS } from '@contentful/rich-text-types'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { memoizePosts } from 'utils'
 const credentials =
   process.env.NODE_ENV === 'dev'
@@ -15,7 +16,6 @@ const credentials =
 
 const client = createClient(credentials)
 // memoizing this since this will be fetched multiple times while running the build
-
 export const getPosts = memoizePosts(() => {
   return client
     .getEntries()
@@ -23,10 +23,28 @@ export const getPosts = memoizePosts(() => {
       entries.items.map((item) => ({
         title: item.fields.title,
         slug: item.fields.slug,
-        post: documentToHtmlString(item.fields.post),
+        post: item.fields.post,
         id: item.sys.id,
         date: item.sys.createdAt,
       }))
     )
-    .catch(console.error)
+    .catch((e) => {
+      console.err("Hmph, Can't fetch this for some reason", e)
+    })
 })
+
+export const renderPosts = (post, ImageContainer) => {
+  const renderOptions = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+        const { file, title, description } = node.data.target.fields
+        return /^image/.test(file.contentType) ? (
+          <ImageContainer title={title} alt={description} src={file.url} />
+        ) : (
+          <span></span>
+        )
+      },
+    },
+  }
+  return documentToReactComponents(post, renderOptions)
+}
