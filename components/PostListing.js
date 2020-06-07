@@ -1,4 +1,4 @@
-import { Container, A } from 'components/ui'
+import { Container, A, Hr } from 'components/ui'
 import { useTheme } from 'providers/Theme'
 
 const Posts = ({ posts }) => {
@@ -6,15 +6,24 @@ const Posts = ({ posts }) => {
   return (
     <section>
       <Container>
+        <p className="description">
+          Yay! You've found my programming blog! I'm Leo and I'm a software
+          engineer from Chennai, India. I primarily build apps for the web and I
+          love Javascript.
+        </p>
         {posts.map((post) => (
           <div className="post-card" key={post.id}>
-            <h2>
-              <A href={`/blog/${post.slug}`}>{post.title}</A>
-            </h2>
-            <p>{new Date(post.date).toDateString()}</p>
-            <hr />
+            <h1>
+              <A href={`/blog/${post.slug}`} hover={true} socialLink={false}>
+                {post.title}
+              </A>
+            </h1>
+            <p>
+              <i>{new Date(post.date).toDateString()}</i>
+            </p>
           </div>
         ))}
+        <Hr color={theme.text} />
       </Container>
 
       <style jsx>{`
@@ -25,17 +34,24 @@ const Posts = ({ posts }) => {
           align-items: center;
           text-align: justify;
         }
+
+        section .description {
+          font-size: 1.5rem;
+          line-height: 2;
+        }
       `}</style>
 
       <style jsx>
         {`
+          .post-card > h1 {
+            font-size: 2rem;
+          }
           .post-card > p {
-            font-size: 1rem;
             color: ${theme.subText};
           }
 
-          .port-card > hr {
-            border: 1px solid ${theme.primary};
+          hr {
+            border: 0.5px solid ${theme.text};
           }
         `}
       </style>

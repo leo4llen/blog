@@ -6,8 +6,16 @@ import { getPosts } from 'services/contentful'
 const BlogPost = ({ post }) => {
   return (
     <>
-      <Head />
-      <Banner />
+      <Head
+        title={post.title}
+        description={post.description || 'My ramblings...'}
+        url={`https://leoallen.me/blog/${post.slug}`}
+      />
+      <Banner
+        paths={[{ label: 'Blog', href: '/blog' }, { label: post.title }]}
+        title={post.title}
+        subText={new Date(post.date).toDateString()}
+      />
       <Post post={post} />
     </>
   )

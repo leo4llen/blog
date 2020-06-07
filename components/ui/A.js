@@ -1,6 +1,6 @@
 import { useTheme } from 'providers/Theme'
 
-export const A = ({ socialLink = false, hover = true, ...props }) => {
+export const A = ({ banner = false, hover = true, ...props }) => {
   const { theme } = useTheme()
 
   if (props.target === '_blank') props.rel = 'noopener noreferrer'
@@ -12,12 +12,12 @@ export const A = ({ socialLink = false, hover = true, ...props }) => {
       <style jsx>{`
         a,
         a:active {
-          font-size: 2rem;
-          color: ${socialLink ? 'inherit' : theme.color};
+          cursor: pointer;
+          color: ${banner ? 'inherit' : theme.primary};
         }
 
         a:hover {
-          text-decoration: ${socialLink ? 'none' : 'underline'};
+          text-decoration: ${hover ? 'underline' : 'none'};
         }
       `}</style>
     </>

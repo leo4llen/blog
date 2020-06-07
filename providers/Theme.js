@@ -55,7 +55,8 @@ export const ThemeProvider = ({ children }) => {
       })
   }, [])
 
-  function toggleTheme() {
+  function toggleTheme(e) {
+    e.preventDefault()
     changeTheme((currentTheme) => {
       const newColorMode = currentTheme.colorMode === 'light' ? 'dark' : 'light'
       store.set('colorMode', newColorMode)

@@ -6,7 +6,7 @@ import { FaGithubAlt } from 'react-icons/fa'
 import { useTheme } from 'providers/Theme'
 
 const SocialLinks = () => {
-  const { theme, colorMode, toggleTheme } = useTheme()
+  const { colorMode, toggleTheme } = useTheme()
   return (
     <>
       <div className="banner-icons">
@@ -14,7 +14,7 @@ const SocialLinks = () => {
           href="https://github.com/lech4rm"
           target="_blank"
           hover={false}
-          socialLink={true}
+          banner={true}
         >
           <FaGithubAlt />
         </A>
@@ -22,28 +22,25 @@ const SocialLinks = () => {
           href="https://twitter.com/leo4llen"
           target="_blank"
           hover={false}
-          socialLink={true}
+          banner={true}
         >
           <AiFillTwitterCircle />
         </A>
         <A
-          href="#"
-          onClick={() => toggleTheme()}
+          onClick={toggleTheme}
           title="Toggle color mode"
           hover={false}
-          socialLink={true}
+          banner={true}
         >
-          {' '}
           {colorMode === 'dark' ? <RiMoonClearLine /> : <BsSun />}
         </A>
       </div>
 
-      <style jsx>
+      <style jsx global>
         {`
-          .banner-icons a {
-            padding: 10px 10px !important;
-            font-size: 1.5rem;
-            color: ${theme.headerColor};
+          .banner-icons > A {
+            font-size: 3rem;
+            padding-left: 2rem;
           }
         `}
       </style>

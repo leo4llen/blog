@@ -5,8 +5,10 @@ export const Img = ({ src, title, description }) => {
 
       <style jsx>{`
         img {
+          display: block;
+          padding: 1rem;
           height: auto;
-          width: 50%;
+          width: 60%;
           margin: 0 auto;
         }
       `}</style>

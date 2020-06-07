@@ -6,9 +6,12 @@ import { getPosts } from 'services/contentful'
 const BlogIndex = ({ posts }) => {
   return (
     <>
-      <Head />
-
-      <Banner />
+      <Head
+        title="Leo Allen's Blog"
+        description="My ramblings..."
+        url="https://leoallen.me/blog"
+      />
+      <Banner paths={[{ label: 'Blog' }]} />
 
       <PostListing posts={posts} />
     </>

@@ -1,6 +1,6 @@
-export const Container = ({ children, align = 'stretch' }) => {
+export const Container = ({ children, align = 'stretch' }, ...props) => {
   return (
-    <div>
+    <div {...props}>
       {children}
 
       <style jsx>{`

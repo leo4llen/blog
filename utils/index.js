@@ -5,3 +5,7 @@ export const memoizePosts = (fn) => {
     return slug ? posts.find((post) => post.slug) : posts
   }
 }
+
+export const preventDefault = (e) => {
+  e.preventDefault()
+}

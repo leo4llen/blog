@@ -1,39 +1,34 @@
-import { Container } from 'components/ui'
+import { Container, Hr } from 'components/ui'
 import SocialLinks from 'components/SocialLinks'
+import Breadcrumb from 'components/Breadcrumb'
 import { useTheme } from 'providers/Theme'
 
-const Banner = () => {
+const Banner = ({ paths }) => {
   const { theme } = useTheme()
 
   return (
     <header>
       <Container align="flex-end">
         <SocialLinks />
+        <Hr color={theme.headerColor} />
       </Container>
       <Container align="center">
-        <h3>Leo Allen's Blog</h3>
-
-        <p className="tagline">
-          Yay! You've found my programming blog! I'm Leo and I'm a software
-          engineer from Chennai, India. I primarily build apps for the web and I
-          love Javascript.
-        </p>
+        <h1>Leo Allen's Blog</h1>
       </Container>
-
+      <Container>
+        <Breadcrumb paths={paths} />
+      </Container>
       <style jsx>{`
         header {
           display: flex;
           flex-direction: column;
-          padding: 6vh 3rem;
+          padding: 2vh 3rem;
           align-items: center;
           text-align: justify;
           -webkit-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
           -moz-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
           box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
-        }
-
-        .tagline {
-          line-height: 1.5;
+          line-height: 2;
         }
       `}</style>
 

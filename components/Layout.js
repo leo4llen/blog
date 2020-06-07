@@ -35,12 +35,6 @@ const Layout = ({ children }) => {
         a:hover {
           text-decoration: underline;
         }
-
-        @media screen and (max-width: 767px) {
-          html {
-            font-size: 13px;
-          }
-        }
       `}</style>
 
       <style jsx global>{`
@@ -51,6 +45,9 @@ const Layout = ({ children }) => {
         }
         a {
           color: ${theme.link};
+        }
+        .sub-text {
+          color: ${theme.subText};
         }
       `}</style>
     </>

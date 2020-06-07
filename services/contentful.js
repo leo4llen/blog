@@ -21,11 +21,11 @@ export const getPosts = memoizePosts(() => {
     .getEntries()
     .then((entries) =>
       entries.items.map((item) => ({
-        title: item.fields.title,
-        slug: item.fields.slug,
-        post: item.fields.post,
-        id: item.sys.id,
-        date: item.sys.createdAt,
+        title: item?.fields?.title || '',
+        slug: item?.fields?.slug || '',
+        post: item?.fields?.post || '',
+        id: item?.sys?.id || '',
+        date: item?.sys?.createdAt || '',
       }))
     )
     .catch((e) => {

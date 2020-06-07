@@ -1,25 +1,45 @@
-import { Container, Img } from 'components/ui'
+import { Container, Img, Hr } from 'components/ui'
 import { renderPosts } from 'services/contentful'
-
+import { useTheme } from 'providers/Theme'
 const Post = ({ post }) => {
+  const { theme } = useTheme()
   return (
     <>
       <section>
-        <Container align="shrink"> {renderPosts(post.post, Img)}</Container>
+        <Container>
+          <h2 className="text">{post.title}</h2>
+
+          <span className="sub-text">
+            <i>{new Date(post.date).toDateString()}</i>
+          </span>
+        </Container>
+        <Container align="shrink">
+          <div className="post-body">{renderPosts(post.post, Img)}</div>
+          <Hr color={theme} />
+        </Container>
       </section>
 
       <style jsx>{`
         section {
-          line-height: 1.5;
           display: flex;
           flex-direction: column;
-          padding: 6vh 3rem;
+          padding: 3vh 3rem;
           align-items: center;
           text-align: justify;
         }
 
-        section img {
-          height: 10px !important;
+        .text {
+          color: ${theme.primary};
+          text-decoration: underline;
+        }
+
+        .post-body {
+          font-size: 1.2rem;
+          line-height: 2;
+        }
+
+        .text {
+          font-size: 1.8rem;
         }
       `}</style>
     </>
