@@ -35,6 +35,49 @@ const Layout = ({ children }) => {
         a:hover {
           text-decoration: underline;
         }
+
+        @media screen and (max-width: 960px) {
+          html {
+            font-size: 10px;
+            line-height: 1.5;
+          }
+        }
+
+        @-webkit-keyframes blinker {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        @keyframes blinker {
+          0% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+
+        .blinker {
+          -webkit-animation-name: blinker;
+          -webkit-animation-duration: 1s;
+          -webkit-animation-timing-function: linear;
+          -webkit-animation-iteration-count: infinite;
+
+          animation-name: blinker;
+          animation-duration: 1s;
+          animation-timing-function: linear;
+          animation-iteration-count: infinite;
+        }
       `}</style>
 
       <style jsx global>{`

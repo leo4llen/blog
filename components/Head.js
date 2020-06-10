@@ -8,16 +8,14 @@ const HeadTag = ({
   return (
     <Head>
       <title>{title}</title>
-      <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-      />
+
       <meta name="author" content="Leo Allen" />
       <meta name="description" content={description} />
       <meta
         name="keywords"
         content="leo, allen, javascript, coding, web developer, programmer, js, html, css, rant, self, taught"
       />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />

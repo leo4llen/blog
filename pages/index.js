@@ -55,6 +55,9 @@ const Index = () => {
           line-height: 2;
         }
 
+        h4 {
+          text-align: center;
+        }
         img {
           height: 30vh;
           margin: 5vh;
