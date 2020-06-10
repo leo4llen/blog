@@ -9,11 +9,7 @@ const Index = () => {
   const { theme, colorMode, toggleTheme } = useTheme()
   return (
     <>
-      <Head
-        title="Leo Allen's Homepage"
-        description="My homepage"
-        url="https://leoallen.me"
-      />
+      <Head />
       <section>
         <Container align="flex-end">
           <A

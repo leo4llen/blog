@@ -1,14 +1,17 @@
 import Head from 'next/head'
 
 const HeadTag = ({
-  title = "Leo Allen's blog",
-  description = 'My ramblings...',
+  title = "Leo Allen's homepage",
+  description = 'My homepage',
   url = 'https://leoallen.me',
 }) => {
   return (
     <Head>
       <title>{title}</title>
-      <meta name="viewport" content="width=devide-width" />
+      <meta
+        name="viewport"
+        content="width=devide-width, initial-scale=1.0, shrink-to-fit=no"
+      />
       <meta name="author" content="Leo Allen" />
       <meta name="description" content={description} />
       <meta

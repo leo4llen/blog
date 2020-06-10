@@ -7,7 +7,7 @@ const Breadcrumb = ({ paths = [] }) => {
       {paths.map(({ label, href }, i) =>
         href ? (
           <>
-            <p>
+            <p key={label}>
               <A href={href} banner={true} hover={true}>
                 {label}
               </A>
@@ -16,7 +16,7 @@ const Breadcrumb = ({ paths = [] }) => {
           </>
         ) : (
           <>
-            <p>
+            <p key={label}>
               <span className="current">{label}</span>
             </p>
           </>
