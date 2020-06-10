@@ -6,7 +6,6 @@ export const Container = ({ children, align = 'stretch' }, ...props) => {
       <style jsx>{`
         div {
           display: flex;
-
           flex-direction: column;
           width: 100%;
           max-width: 768px;
