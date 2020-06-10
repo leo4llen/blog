@@ -10,7 +10,7 @@ const HeadTag = ({
       <title>{title}</title>
       <meta
         name="viewport"
-        content="width=devide-width, initial-scale=1.0, shrink-to-fit=no"
+        content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
       />
       <meta name="author" content="Leo Allen" />
       <meta name="description" content={description} />
