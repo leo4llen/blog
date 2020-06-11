@@ -16,14 +16,17 @@ const HeadTag = ({
         content="leo, allen, javascript, coding, web developer, programmer, js, html, css, rant, self, taught"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="theme-color" content="#47d147" />
       <meta property="og:title" content={title} />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:description" content={description} />
+      <meta property="og:image" content="https://leoallen.me/images/4.png" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:url" content={url} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content="https://leoallen.me/images/4.png" />
 
       <link
         href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
