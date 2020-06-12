@@ -1,5 +1,6 @@
 import store from 'store'
 import { createContext, useContext, useState, useEffect } from 'react'
+import { pipe, preventDefault } from 'utils'
 
 const THEME = {
   light: {
@@ -36,7 +37,7 @@ export const ThemeProvider = ({ children }) => {
   const INITIAL_THEME = {
     colorMode: 'dark',
     theme: THEME['dark'],
-    toggleTheme,
+    toggleTheme: pipe(preventDefault, toggleTheme),
   }
 
   const [theme, changeTheme] = useState(INITIAL_THEME)
@@ -46,7 +47,7 @@ export const ThemeProvider = ({ children }) => {
 
     if (
       ['light', 'dark'].includes(storedColorMode) &&
-      storedColorMode !== theme
+      storedColorMode !== theme.colorMode
     )
       changeTheme({
         ...INITIAL_THEME,
@@ -55,8 +56,7 @@ export const ThemeProvider = ({ children }) => {
       })
   }, [])
 
-  function toggleTheme(e) {
-    e.preventDefault()
+  function toggleTheme() {
     changeTheme((currentTheme) => {
       const newColorMode = currentTheme.colorMode === 'light' ? 'dark' : 'light'
       store.set('colorMode', newColorMode)

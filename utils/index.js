@@ -1,3 +1,6 @@
+export const pipe = (...fns) => (arg) =>
+  fns.reduce((result, fn) => fn(result), arg)
+
 export const memoizePosts = (fn) => {
   let posts = null
   return async (slug) => {
@@ -8,4 +11,5 @@ export const memoizePosts = (fn) => {
 
 export const preventDefault = (e) => {
   e.preventDefault()
+  return e
 }
