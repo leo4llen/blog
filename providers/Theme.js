@@ -1,5 +1,5 @@
 import store from 'store'
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState, useLayoutEffect } from 'react'
 import { pipe, preventDefault } from 'utils'
 
 const THEME = {
@@ -42,7 +42,7 @@ export const ThemeProvider = ({ children }) => {
 
   const [theme, changeTheme] = useState(INITIAL_THEME)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const storedColorMode = store.get('colorMode')
 
     if (
