@@ -48,7 +48,7 @@ export const renderPosts = (post, ImageContainer, LinkContainer) => {
         const { uri } = node.data
         const label = node.content[0].value
         return uri ? (
-          <LinkContainer src={uri} target='_blank'>
+          <LinkContainer href={uri} target='_blank'>
             {label}
           </LinkContainer>
         ) : (
