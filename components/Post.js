@@ -7,14 +7,14 @@ const Post = ({ post }) => {
     <>
       <section>
         <Container>
-          <h2 className="text">{post.title}</h2>
+          <h2 className='text'>{post.title}</h2>
 
-          <span className="sub-text">
+          <span className='sub-text'>
             <i>{new Date(post.date).toDateString()}</i>
           </span>
         </Container>
-        <Container align="shrink">
-          <div className="post-body">{renderPosts(post.post, Img)}</div>
+        <Container align='shrink'>
+          <div className='post-body'>{renderPosts(post.post, Img)}</div>
           <Hr color={theme} />
         </Container>
       </section>
@@ -29,12 +29,13 @@ const Post = ({ post }) => {
         }
 
         .text {
+          font-size: 1.5rem;
           color: ${theme.primary};
           text-decoration: underline;
         }
 
         .post-body {
-          font-size: 1.2rem;
+          font-size: 1.5rem;
           line-height: 2;
         }
 

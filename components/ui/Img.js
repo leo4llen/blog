@@ -8,7 +8,7 @@ export const Img = ({ src, title, description }) => {
           display: block;
           padding: 1rem;
           height: auto;
-          width: 60%;
+          width: 90%;
           margin: 0 auto;
         }
       `}</style>

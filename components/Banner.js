@@ -28,7 +28,7 @@ const Banner = ({ paths }) => {
           -webkit-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
           -moz-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
           box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
-          line-height: 1;
+          line-height: 1.2;
         }
       `}</style>
 
