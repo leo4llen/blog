@@ -12,7 +12,10 @@ const BlogPost = ({ post }) => {
         url={`https://leoallen.me/blog/${post.slug}`}
       />
       <Banner
-        paths={[{ label: 'Blog', href: '/blog' }, { label: post.title }]}
+        paths={[
+          { label: 'Blog', href: '/blog' },
+          { label: post.title.substr(0, 20) + '...' }
+        ]}
         title={post.title}
         subText={new Date(post.date).toDateString()}
       />
@@ -24,13 +27,13 @@ const BlogPost = ({ post }) => {
 export const getStaticPaths = async () => {
   const posts = await getPosts()
 
-  const paths = posts.map((post) => ({
-    params: { slug: post.slug },
+  const paths = posts.map(post => ({
+    params: { slug: post.slug }
   }))
 
   return {
     paths,
-    fallback: false,
+    fallback: false
   }
 }
 

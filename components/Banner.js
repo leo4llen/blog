@@ -8,11 +8,11 @@ const Banner = ({ paths }) => {
 
   return (
     <header>
-      <Container align="flex-end">
+      <Container align='flex-end'>
         <SocialLinks />
         <Hr color={theme.headerColor} />
       </Container>
-      <Container align="center">
+      <Container align='center'>
         <h1>Leo Allen's Blog</h1>
       </Container>
       <Container>
@@ -28,7 +28,7 @@ const Banner = ({ paths }) => {
           -webkit-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
           -moz-box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
           box-shadow: 0px 10px 5px -7px rgba(0, 0, 0, 0.18);
-          line-height: 2;
+          line-height: 1;
         }
       `}</style>
 
