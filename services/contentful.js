@@ -1,17 +1,17 @@
 import { createClient } from 'contentful'
-import { BLOCKS } from '@contentful/rich-text-types'
+import { BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { memoizePosts } from 'utils'
 const credentials =
   process.env.NODE_ENV === 'dev'
     ? {
         space: process.env.SPACE_ID,
-        accessToken: process.env.DELIVERY_ACCESS_TOKEN,
+        accessToken: process.env.DELIVERY_ACCESS_TOKEN
       }
     : {
         space: process.env.SPACE_ID,
         accessToken: process.env.PREVIEW_ACCESS_TOKEN,
-        host: 'preview.contentful.com',
+        host: 'preview.contentful.com'
       }
 
 const client = createClient(credentials)
@@ -19,24 +19,24 @@ const client = createClient(credentials)
 export const getPosts = memoizePosts(() => {
   return client
     .getEntries()
-    .then((entries) =>
-      entries.items.map((item) => ({
+    .then(entries =>
+      entries.items.map(item => ({
         title: item?.fields?.title || '',
         slug: item?.fields?.slug || '',
         post: item?.fields?.post || '',
         id: item?.sys?.id || '',
-        date: item?.sys?.createdAt || '',
+        date: item?.sys?.createdAt || ''
       }))
     )
-    .catch((e) => {
+    .catch(e => {
       console.err("Hmph, Can't fetch this for some reason", e)
     })
 })
 
-export const renderPosts = (post, ImageContainer) => {
+export const renderPosts = (post, ImageContainer, LinkContainer) => {
   const renderOptions = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: (node) => {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
         const { file, title, description } = node.data.target.fields
         return /^image/.test(file.contentType) ? (
           <ImageContainer title={title} alt={description} src={file.url} />
@@ -44,7 +44,18 @@ export const renderPosts = (post, ImageContainer) => {
           <span></span>
         )
       },
-    },
+      [INLINES.HYPERLINK]: node => {
+        const { uri } = node.data
+        const label = node.content[0].value
+        return uri ? (
+          <LinkContainer src={uri} target='_blank'>
+            {label}
+          </LinkContainer>
+        ) : (
+          <span></span>
+        )
+      }
+    }
   }
   return documentToReactComponents(post, renderOptions)
 }

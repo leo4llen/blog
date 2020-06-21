@@ -1,4 +1,4 @@
-import { Container, Img, Hr } from 'components/ui'
+import { Container, Img, Hr, A } from 'components/ui'
 import { renderPosts } from 'services/contentful'
 import { useTheme } from 'providers/Theme'
 const Post = ({ post }) => {
@@ -14,7 +14,7 @@ const Post = ({ post }) => {
           </span>
         </Container>
         <Container align='shrink'>
-          <div className='post-body'>{renderPosts(post.post, Img)}</div>
+          <div className='post-body'>{renderPosts(post.post, Img, A)}</div>
           <Hr color={theme} />
         </Container>
       </section>
