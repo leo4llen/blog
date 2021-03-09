@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
 
         @media screen and (max-width: 960px) {
           html {
-            font-size: 10px;
+            font-size: 12px;
             line-height: 1.5;
           }
         }
