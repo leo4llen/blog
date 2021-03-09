@@ -19,14 +19,6 @@ const SocialLinks = () => {
           <FaGithubAlt />
         </A>
         <A
-          href="https://twitter.com/leo4llen"
-          target="_blank"
-          hover={false}
-          banner={true}
-        >
-          <AiFillTwitterCircle />
-        </A>
-        <A
           onClick={toggleTheme}
           title="Toggle color mode"
           hover={false}
@@ -39,7 +31,7 @@ const SocialLinks = () => {
       <style jsx global>
         {`
           .banner-icons > A {
-            font-size: 3rem;
+            font-size: 2rem;
             padding-left: 2rem;
           }
         `}

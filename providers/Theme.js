@@ -10,7 +10,7 @@ const THEME = {
     subText: '#808080',
     headingFont: "'Press Start 2P', cursive",
     headerColor: '#333333',
-    font: "'Source Serif Pro', serif",
+    font: "'Source Serif Pro', serif"
   },
   dark: {
     background: '#333333',
@@ -19,8 +19,8 @@ const THEME = {
     subText: '#808080',
     headingFont: "'Press Start 2P', cursive",
     headerColor: '#333333',
-    font: "'Source Serif Pro', serif",
-  },
+    font: "'Source Serif Pro', serif"
+  }
 }
 
 const ThemeContext = (() => {
@@ -28,7 +28,7 @@ const ThemeContext = (() => {
   const DEFAULT_THEME = {
     colorMode: DEFAULT_COLOR_MODE,
     theme: THEME[DEFAULT_COLOR_MODE],
-    toggleTheme: () => {},
+    toggleTheme: () => {}
   }
   return createContext(DEFAULT_THEME)
 })()
@@ -37,11 +37,13 @@ export const ThemeProvider = ({ children }) => {
   const INITIAL_THEME = {
     colorMode: 'dark',
     theme: THEME['dark'],
-    toggleTheme: pipe(preventDefault, toggleTheme),
+    toggleTheme: pipe(preventDefault, toggleTheme)
   }
 
   const [theme, changeTheme] = useState(INITIAL_THEME)
 
+  // TODO: This doesn't do shit. I need to figure out a way to avoid the annoying flicker effect from dark -> light theme
+  // when a user has selected the light mode
   useLayoutEffect(() => {
     const storedColorMode = store.get('colorMode')
 
@@ -52,7 +54,7 @@ export const ThemeProvider = ({ children }) => {
       changeTheme({
         ...INITIAL_THEME,
         colorMode: storedColorMode,
-        theme: THEME[storedColorMode],
+        theme: THEME[storedColorMode]
       })
   }, [])
 
@@ -63,7 +65,7 @@ export const ThemeProvider = ({ children }) => {
       return {
         ...INITIAL_THEME,
         colorMode: newColorMode,
-        theme: THEME[newColorMode],
+        theme: THEME[newColorMode]
       }
     })
   }

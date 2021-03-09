@@ -8,12 +8,12 @@ const Banner = ({ paths }) => {
 
   return (
     <header>
-      <Container align='flex-end'>
+      <Container align="flex-end">
         <SocialLinks />
         <Hr color={theme.headerColor} />
       </Container>
-      <Container align='center'>
-        <h1>Leo Allen's Blog</h1>
+      <Container align="center">
+        <h2 className="blog-title">Leo Allen's Blog</h2>
       </Container>
       <Container>
         <Breadcrumb paths={paths} />
@@ -46,6 +46,9 @@ const Banner = ({ paths }) => {
           h6 {
             font-family: ${theme.headingFont};
             color: ${theme.headerColor};
+          }
+          .blog-title {
+            padding-top: 1rem;
           }
         `}
       </style>

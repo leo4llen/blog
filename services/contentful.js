@@ -18,9 +18,9 @@ const client = createClient(credentials)
 // memoizing this since this will be fetched multiple times while running the build
 export const getPosts = memoizePosts(() => {
   return client
-    .getEntries()
-    .then(entries =>
-      entries.items.map(item => ({
+    .getEntries({ content_type: 'blogPosts' })
+    .then((entries) =>
+      entries.items.map((item) => ({
         title: item?.fields?.title || '',
         slug: item?.fields?.slug || '',
         post: item?.fields?.post || '',
@@ -28,7 +28,7 @@ export const getPosts = memoizePosts(() => {
         date: item?.sys?.createdAt || ''
       }))
     )
-    .catch(e => {
+    .catch((e) => {
       console.err("Hmph, Can't fetch this for some reason", e)
     })
 })
@@ -36,7 +36,7 @@ export const getPosts = memoizePosts(() => {
 export const renderPosts = (post, ImageContainer, LinkContainer) => {
   const renderOptions = {
     renderNode: {
-      [BLOCKS.EMBEDDED_ASSET]: node => {
+      [BLOCKS.EMBEDDED_ASSET]: (node) => {
         const { file, title, description } = node.data.target.fields
         return /^image/.test(file.contentType) ? (
           <ImageContainer title={title} alt={description} src={file.url} />
@@ -44,11 +44,11 @@ export const renderPosts = (post, ImageContainer, LinkContainer) => {
           <span></span>
         )
       },
-      [INLINES.HYPERLINK]: node => {
+      [INLINES.HYPERLINK]: (node) => {
         const { uri } = node.data
         const label = node.content[0].value
         return uri ? (
-          <LinkContainer href={uri} target='_blank'>
+          <LinkContainer href={uri} target="_blank">
             {label}
           </LinkContainer>
         ) : (

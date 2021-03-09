@@ -25,7 +25,7 @@ const Breadcrumb = ({ paths = [] }) => {
 
       <style jsx>{`
         div > * {
-          font-size: 1.8rem;
+          font-size: 1.2rem;
           display: inline-block;
           padding-right: 1rem;
         }

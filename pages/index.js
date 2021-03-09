@@ -34,12 +34,7 @@ const Index = () => {
             </li>
             <li>
               <A href="https://github.com/lech4rm" target="_blank">
-                Code
-              </A>
-            </li>
-            <li>
-              <A href="https://twitter.com/leo4llen" target="_blank">
-                Twitter
+                Github
               </A>
             </li>
           </ul>

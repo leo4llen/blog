@@ -6,13 +6,12 @@ const Posts = ({ posts }) => {
   return (
     <section>
       <Container>
-        <p className='description'>
+        <p className="description">
           Yay! You've found my programming blog! I'm Leo and I'm a software
-          engineer from Chennai, India. I primarily build apps for the web and I
-          love Javascript.
+          engineer from Chennai, India. I build apps for the web.
         </p>
-        {posts.map(post => (
-          <div className='post-card' key={post.id}>
+        {posts.map((post) => (
+          <div className="post-card" key={post.id}>
             <h1>
               <A href={`/blog/${post.slug}`} hover={true} socialLink={false}>
                 {post.title}
@@ -35,7 +34,7 @@ const Posts = ({ posts }) => {
         }
 
         section .description {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           line-height: 2;
           text-align: justify;
         }
@@ -44,7 +43,7 @@ const Posts = ({ posts }) => {
       <style jsx>
         {`
           .post-card > h1 {
-            font-size: 2rem;
+            font-size: 1.5rem;
           }
           .post-card > p {
             color: ${theme.subText};
