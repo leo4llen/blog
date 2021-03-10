@@ -33,6 +33,9 @@ const Index = () => {
               <A href="/blog">Blog</A>
             </li>
             <li>
+              <A href="https://gallery.leoallen.me">Gallery</A>
+            </li>
+            <li>
               <A href="https://github.com/lech4rm" target="_blank">
                 Github
               </A>
