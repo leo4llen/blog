@@ -36,7 +36,7 @@ const Index = () => {
               <A href="https://gallery.leoallen.xyz">Gallery</A>
             </li>
             <li>
-              <A href="https://github.com/lech4rm" target="_blank">
+              <A href="https://github.com/leo4llen" target="_blank">
                 Github
               </A>
             </li>
